@@ -18,14 +18,12 @@ export interface CreatureType {
     } 
 }
 
-interface CreatureBase {
-    name: string;
-}
-
-interface CreatureStats {
+export interface CreatureStats {
     base_stat: number;
     effort: number;
-    stat: CreatureBase;
+    ["stat"]: {
+        ["name"]: string
+    };
 }
 
 const getCreature = async (identifier: number | string) => {

@@ -6,13 +6,14 @@ import { MainHeader } from 'components/header';
 import { LangContext } from 'utils/internationalization/provider/LangProvider';
 import { PokemonCardPicture } from 'components/cards';
 import { PokemonTypeChip } from 'components/chip';
+import { StatsChart } from 'components/panel';
 
 function HomeScreen() {
   const [featuredPokemon, setFeaturedPokemon] = useState<Creature | null>(null)
   const { Translate } = useContext(LangContext);
 
   useEffect(() => {
-    getFeautedCreature();
+    // getFeautedCreature();
   }, []);
 
   const getFeautedCreature = async () => {
@@ -26,10 +27,13 @@ function HomeScreen() {
     <ScreenContainer>
       <MainHeader title={Translate('title')} />
       <ScreenContent>
+        <Text>{Translate("HomeFeaturedPokemon")}</Text>
         {featuredPokemon && 
           <>
             <PokemonCardPicture imageUri={featuredPokemon.sprite} />
+            <Text>{`#${featuredPokemon.id} ${featuredPokemon.name}`}</Text>
             <PokemonTypeChip pokemonId={featuredPokemon.id} pokemonTypes={featuredPokemon.types} />
+            <StatsChart title={Translate("HomeStatsTitle")} pokemonId={featuredPokemon.id} stats={featuredPokemon.stats} />
           </>
         }
       </ScreenContent>
