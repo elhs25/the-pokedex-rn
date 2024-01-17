@@ -7,18 +7,25 @@ export interface Creature {
     sprite: string;
     height: number;
     weight: number;
-    type: string | CreatureType[]; 
+    types: CreatureType[]; 
     stats: CreatureStats[];
 }
 
-interface CreatureType {
+export interface CreatureType {
+    slot: number
+    ["type"]: {
+        ["name"]: string
+    } 
+}
+
+interface CreatureBase {
     name: string;
 }
 
 interface CreatureStats {
     base_stat: number;
     effort: number;
-    stat: CreatureType;
+    stat: CreatureBase;
 }
 
 const getCreature = async (identifier: number | string) => {
@@ -28,7 +35,10 @@ const getCreature = async (identifier: number | string) => {
             return null;
         }
 
-        const creature: Creature = { ...response.data, sprite: response.data?.sprites.front_default };
+        const creature: Creature = { 
+            ...response.data, 
+            sprite: response.data?.sprites.front_default, 
+        };
         return creature;
     } catch (error) {
         console.log("get creature error", error);
