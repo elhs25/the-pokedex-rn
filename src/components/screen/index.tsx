@@ -1,5 +1,6 @@
-import ScreenContainer from "./ScreenContainer/ScreenContainer";
+import ScreenContainer, { ScreenContent } from "./ScreenContainer/ScreenContainer";
 
 export {
-    ScreenContainer
+    ScreenContainer,
+    ScreenContent,
 }

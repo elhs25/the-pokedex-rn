@@ -25,4 +25,10 @@ const ScreenContainer = ({ children }: ScreenContainerProps) => {
     )
 }
 
+export const ScreenContent = ({ children }: ScreenContainerProps) => (
+    <View style={styles.content}>
+        {children}
+    </View>
+)
+
 export default ScreenContainer;
