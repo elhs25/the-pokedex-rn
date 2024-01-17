@@ -1,7 +1,7 @@
 import { API_URL } from "@env"
 import axios from "axios"
 
-interface Creature {
+export interface Creature {
     id: number;
     name: string;
     sprite: string;
@@ -28,7 +28,7 @@ const getCreature = async (identifier: number | string) => {
             return null;
         }
 
-        const creature: Creature = response.data;
+        const creature: Creature = { ...response.data, sprite: response.data?.sprites.front_default };
         return creature;
     } catch (error) {
         console.log("get creature error", error);
