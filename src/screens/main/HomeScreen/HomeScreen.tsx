@@ -9,10 +9,13 @@ import { PokemonTypeChip } from 'components/chip';
 import { StatsChart } from 'components/panel';
 import { styles } from './styles';
 import { FAButton } from 'components/button';
+import { useNavigation } from '@react-navigation/native';
+import { POKEDEX_SCREENS } from 'screens/pokedex/navigation/constants';
 
 function HomeScreen() {
   const [featuredPokemon, setFeaturedPokemon] = useState<Creature | null>(null)
   const { Translate } = useContext(LangContext);
+  const navigation = useNavigation();
 
   useEffect(() => {
     // getFeautedCreature();
@@ -26,7 +29,9 @@ function HomeScreen() {
   }
 
   const handleFAButtonPressed = () => {
-
+    navigation.navigate(POKEDEX_SCREENS.STACK as never, {
+      screen: POKEDEX_SCREENS.SEARCH,
+    } as never);
   }
 
   return (

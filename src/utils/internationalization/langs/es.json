@@ -1,7 +1,12 @@
 {
     "title": "Pokédex",
+
     "HomeFeaturedPokemon": "El Pokémon destacado de hoy",
     "HomeStatsTitle": "Estadísticas",
+
+    "SearchTitle": "Pokédex",
+    "SearchGenerationTitle": "Generación {generation}",
+    "SearchGenerationSubtitle": "Región {region}",
     
     "normal": "Normal",
     "fire": "Fuego",
