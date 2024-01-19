@@ -5,8 +5,8 @@
     "HomeStatsTitle": "Statistics",
 
     "SearchTitle": "Pokedex",
-    "SearchGenerationTitle": "Generation {generation}",
-    "SearchGenerationSubtitle": "Region {region}",
+    "SearchGenerationTitle": "List of Pokemons",
+    "SearchGenerationSubtitle": "Region {{region}}",
     
     "normal": "Normal",
     "fire": "Fire",

@@ -1,3 +1,4 @@
+import { TFunction } from "i18next";
 import { createContext, } from "react";
 import { useTranslation } from "react-i18next";
 import i18n from "utils/internationalization/i18n";
@@ -8,10 +9,10 @@ interface LangProviderProps {
 
 interface LangContextProps {
     changeLanguage: (lng: string) => void
-    Translate: (lng: string) => string
+    Translate: TFunction<"translation", undefined> | any // FIXME: find a way to deal with default values for Translate function
 }
 
-export const LangContext = createContext<LangContextProps>({ Translate: () => "", changeLanguage: () => {} });
+export const LangContext = createContext<LangContextProps>({ Translate: () => {}, changeLanguage: () => {} });
 
 export const LangProvider = ({ children }: LangProviderProps) => {
     const {t: Translate} = useTranslation();
