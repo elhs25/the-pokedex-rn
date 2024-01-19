@@ -11,6 +11,7 @@ import { styles } from './styles';
 import { FAButton } from 'components/button';
 import { useNavigation } from '@react-navigation/native';
 import { POKEDEX_SCREENS } from 'screens/pokedex/navigation/constants';
+import { FormatCountNumber } from 'utils/helpers/format';
 
 function HomeScreen() {
   const [featuredPokemon, setFeaturedPokemon] = useState<Creature | null>(null)
@@ -18,7 +19,7 @@ function HomeScreen() {
   const navigation = useNavigation();
 
   useEffect(() => {
-    // getFeautedCreature();
+    getFeautedCreature();
   }, []);
 
   const getFeautedCreature = async () => {
@@ -46,7 +47,7 @@ function HomeScreen() {
                 <PokemonCardPicture imageUri={featuredPokemon.sprite} />
               </View>
               <View style={styles.itemContainer}>
-                <Text style={styles.featuredPokemonName}>{`#${featuredPokemon.id} ${featuredPokemon.name}`}</Text>
+                <Text style={styles.featuredPokemonName}>{`#${FormatCountNumber(featuredPokemon.id)} ${featuredPokemon.name}`}</Text>
                 <PokemonTypeChip pokemonId={featuredPokemon.id} pokemonTypes={featuredPokemon.types} />
               </View>
               <StatsChart title={Translate("HomeStatsTitle")} pokemonId={featuredPokemon.id} stats={featuredPokemon.stats} />

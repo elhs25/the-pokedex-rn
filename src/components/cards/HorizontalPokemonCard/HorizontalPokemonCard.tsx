@@ -1,6 +1,7 @@
 import { BaseCreature } from "api/Pokemon";
-import React from "react";
+import React, { useCallback } from "react";
 import { Image, Text, TouchableOpacity, View } from "react-native";
+import { FormatCountNumber } from "utils/helpers/format";
 import { styles } from "./styles";
 
 interface HorizontalPokemonCardProps extends BaseCreature{
@@ -8,8 +9,8 @@ interface HorizontalPokemonCardProps extends BaseCreature{
 }
 
 const HorizontalPokemonCard = ({ name, id, sprite, onPress }: HorizontalPokemonCardProps) => {
+    const getFormattedNumber = useCallback(() => FormatCountNumber(id), [id]);
     return (
-        <>
         <TouchableOpacity style={styles.container} onPress={onPress}>
             <View style={styles.imageContainer}>
                 <Image
@@ -20,10 +21,9 @@ const HorizontalPokemonCard = ({ name, id, sprite, onPress }: HorizontalPokemonC
             </View>
             <View>
                 <Text style={[styles.label, styles.labelName]}>{name}</Text>
-                <Text style={styles.label}>{`#${id}`}</Text>
+                <Text style={styles.label}>{`#${getFormattedNumber()}`}</Text>
             </View>
         </TouchableOpacity>
-        </>
     )
 
 }

@@ -20,8 +20,8 @@ const getCreature = async (identifier: number | string) => {
 }
 
 const listCreatures = async ({
-    limit = 20,
-    offset = 20,
+    limit = API_DEFAULT_OFFSET,
+    offset = API_DEFAULT_OFFSET,
 }) => {
     try {
         const response = await axios.get(`${API_URL}/pokemon/?limit=${limit}&offset=${offset}`);
@@ -29,7 +29,7 @@ const listCreatures = async ({
             return null;
         }
         let invalidCreatureName = "";
-        const creatures: BaseCreature[] = response.data.map(({ name, url }: { name: string, url: string }) => {
+        const creatures: BaseCreature[] = response.data.results.map(({ name, url }: { name: string, url: string }) => {
             const extractedId = url.match(/\/\d+/);
             let id = 0;
             // flag to detect if there is an error extracting the ID from URL
@@ -77,6 +77,8 @@ const getGenerationCreatures = async (identifier: number | string) => {
         return null;
     }
 }
+
+export const API_DEFAULT_OFFSET = 20;
 
 export interface BaseCreature {
     id: number
