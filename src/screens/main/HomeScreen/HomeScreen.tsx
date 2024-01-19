@@ -35,6 +35,15 @@ function HomeScreen() {
     } as never);
   }
 
+  const handleFeaturedPokemonPressed = () => {
+    navigation.navigate(POKEDEX_SCREENS.STACK as never, {
+      screen: POKEDEX_SCREENS.POKEMON_DETAILS,
+      params: {
+        id: featuredPokemon?.id
+      }
+    } as never);
+  }
+
   return (
     <ScreenContainer>
       <MainHeader title={Translate('title')} />
@@ -44,7 +53,7 @@ function HomeScreen() {
           {featuredPokemon && 
             <View style={styles.elementContainer}>
               <View style={styles.itemContainer}>
-                <PokemonCardPicture imageUri={featuredPokemon.sprite} />
+                <PokemonCardPicture imageUri={featuredPokemon.sprite} onPress={handleFeaturedPokemonPressed} />
               </View>
               <View style={styles.itemContainer}>
                 <Text style={styles.featuredPokemonName}>{`#${FormatCountNumber(featuredPokemon.id)} ${featuredPokemon.name}`}</Text>

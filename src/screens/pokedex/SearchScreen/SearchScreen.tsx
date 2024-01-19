@@ -8,6 +8,7 @@ import { API_DEFAULT_OFFSET, BaseCreature, listCreatures } from "api/Pokemon";
 import { HorizontalPokemonCard } from "components/cards";
 import { styles } from "./styles";
 import { FooterLoadingIndicator } from "components/loading";
+import { POKEDEX_SCREENS } from "../navigation/constants";
 
 const SearchScreen = () => {
     const { Translate } = useContext(LangContext);
@@ -42,7 +43,10 @@ const SearchScreen = () => {
     }
 
     const handlePokemonPressed = (id: number) => {
-        console.log("navigate to details with id", id);
+        navigation.navigate(POKEDEX_SCREENS.STACK as never, {
+            screen: POKEDEX_SCREENS.POKEMON_DETAILS,
+            params: { id }
+        } as never);
     }
 
     const handleGoBack = () => {

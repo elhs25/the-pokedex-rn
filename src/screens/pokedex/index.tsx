@@ -1,3 +1,7 @@
+import PokemonScreen from "./PokemonScreen/PokemonScreen";
 import SearchScreen from "./SearchScreen/SearchScreen";
 
-export { SearchScreen }
+export {
+    SearchScreen,
+    PokemonScreen
+}
