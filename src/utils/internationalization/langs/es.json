@@ -7,6 +7,10 @@
     "SearchTitle": "Pokédex",
     "SearchGenerationTitle": "Listado de Pokémones",
     "SearchGenerationSubtitle": "Región {{region}}",
+
+    "PokemonStatsTitle": "Estadísticas",
+    "PokemonStatsHeight": "Altura: {{height}} m",
+    "PokemonStatsWeight": "Peso: {{weight}} kg",
     
     "normal": "Normal",
     "fire": "Fuego",

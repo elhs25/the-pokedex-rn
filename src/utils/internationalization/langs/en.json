@@ -3,10 +3,14 @@
 
     "HomeFeaturedPokemon": "Featured Pokemon today",
     "HomeStatsTitle": "Statistics",
-
+    
     "SearchTitle": "Pokedex",
     "SearchGenerationTitle": "List of Pokemons",
     "SearchGenerationSubtitle": "Region {{region}}",
+
+    "PokemonStatsTitle": "Statistics",
+    "PokemonStatsHeight": "Height: {{height}} m",
+    "PokemonStatsWeight": "Weight: {{weight}} kg",
     
     "normal": "Normal",
     "fire": "Fire",
