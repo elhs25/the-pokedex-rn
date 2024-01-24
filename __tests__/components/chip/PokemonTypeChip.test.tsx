@@ -6,7 +6,7 @@ import { PokemonTypeChip } from "components/chip";
 import { LangContext } from "utils/internationalization/provider/LangProvider";
 
 // Note: test renderer must be required after react-native.
-import renderer, { ReactTestRendererTree } from 'react-test-renderer';
+import renderer from 'react-test-renderer';
 
 describe("The PokemonTypeChip", () => {
 
